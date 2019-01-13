@@ -1,0 +1,26 @@
+<aura:component implements="flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+    <aura:attribute name="SearchCar" type="string" default="Search Car"/>
+    <aura:attribute name="isVisible" type="boolean" default="false"/>
+    <aura:attribute name="carList" type="string[]"/>
+    <aura:handler name="init" value="{!this}" action="{!c.getCarTypes}"/>
+    <aura:handler name="render" value="{!this}" action="{!c.handleRender}"/>
+    <lightning:layout verticalAlign="end">
+        <lightning:layoutItem padding="around-medium">
+            <lightning:select aura:id="carType" name="select" label="All Types" value="" variant="label-hidden" onchange="{!c.handleChange}">
+                <aura:iteration items="{!v.carList}" var="car">
+                <option value="" text="{!car}"/>
+                    </aura:iteration>
+            </lightning:select>
+        </lightning:layoutItem>
+        <lightning:layoutItem padding="around-medium">
+            <lightning:button label= "{!v.SearchCar}" variant="brand"/>
+            <lightning:button label= "Toggle Button" variant="brand" onclick="{!c.toggleButton}"/>
+            <aura:if isTrue="{!v.isVisible}">
+                <lightning:button label= "New" variant="neutral"/>
+                <aura:set attribute="else">
+                    THis is conditional test
+                </aura:set>
+            </aura:if>  
+        </lightning:layoutItem>
+    </lightning:layout>
+</aura:component>

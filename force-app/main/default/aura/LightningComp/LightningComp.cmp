@@ -1,0 +1,13 @@
+<aura:component implements="flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+    <p class="paragraph">Hello World</p>
+    <div>
+        <p class="paragraph1">Hello World1 in div</p>
+    </div>
+    <div>
+        <div>
+            <p class="paragraph2">THis is inside the nested div</p>
+        </div>
+    </div>
+    <lightning:formattedText value="I like salesforce.com Lightning www.salesforce.com"/>
+    <lightning:button variant="brand" label="Save"/>
+</aura:component>
